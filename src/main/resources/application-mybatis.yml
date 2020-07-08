@@ -23,6 +23,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
 swagger:
   enabled: true
   base-package: com.coding.controller.api
@@ -34,3 +37,4 @@ logging:
   level:
     com.coding: debug
     com.coding.mapper: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
