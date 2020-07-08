@@ -5,7 +5,9 @@ import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 
 
 /**
@@ -34,6 +36,9 @@ public class User extends BaseDO {
      * 1-管理员 可以添加书，查看用户列表，删除用户，查看书列表
      */
     private Integer type;
+
+    @OneToMany
+    private List<Borrow> borrowList;
 
 
 }

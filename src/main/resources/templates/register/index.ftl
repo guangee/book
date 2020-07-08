@@ -3,7 +3,7 @@
     <form class="form-inline">
         <input type="text" class="form-control" id="keyword">
         <button type="submit" class="btn btn-default" onclick="return search()">搜索</button>
-        <button type="submit" class="btn btn-default J_ajax_content_modal" data-href='manager/register/add'>生成注册码
+        <button type="submit" class="btn btn-default J_ajax_content_modal" data-href='manager/borrow/add'>生成注册码
         </button>
     </form>
 </@override>
@@ -34,7 +34,7 @@
                 'serverSide': true,
                 // "paging": false,
                 "ajax": {
-                    url: "admin/register",
+                    url: "admin/borrow",
                     dataSrc: "data"
                 },
                 columns: [
@@ -46,7 +46,7 @@
                             if (data === undefined) {
                                 return '';
                             }
-                            var deleteButton = "<a class='btn btn-danger J_ajax_content_modal' data-href='manager/register/delete?id=" + data + "'>删除</a>";
+                            var deleteButton = "<a class='btn btn-danger J_ajax_content_modal' data-href='manager/borrow/delete?id=" + data + "'>删除</a>";
                             return deleteButton;
                         }, "searchable": true
                     }
@@ -58,7 +58,7 @@
         });
 
         function search() {
-            table.ajax.url("admin/register?keyword=" + $("#keyword").val()
+            table.ajax.url("admin/borrow?keyword=" + $("#keyword").val()
             ).draw();
             return false;
         }

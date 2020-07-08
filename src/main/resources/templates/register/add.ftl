@@ -28,7 +28,7 @@
             "num": $("input[name='num']").val()
         };
         $.ajax({
-                url: "admin/register/add",
+                url: "admin/borrow/add",
                 type: "POST",
                 data: data,
                 success: function (res) {

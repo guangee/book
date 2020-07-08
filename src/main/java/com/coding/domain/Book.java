@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
@@ -19,15 +18,9 @@ import java.time.LocalDateTime;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@Table(name = "tab_register")
-public class Register extends BaseDO {
+@Table(name = "tab_book")
+public class Book extends BaseDO {
 
-    @ApiModelProperty("注册号")
-    private String code;
-
-    private String machineCode;
-
-
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private LocalDateTime registerTime;
+    @ApiModelProperty("书名")
+    private String name;
 }
