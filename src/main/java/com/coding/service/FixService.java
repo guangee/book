@@ -31,7 +31,6 @@ public class FixService {
             return Result.createByErrorMessage("找不到该记录");
         }
         Borrow borrow = new Borrow();
-        borrow.setCode(code);
         borrow = borrowMapper.findOne(Example.of(borrow)).orElse(null);
         if (borrow == null) {
             return Result.createByErrorMessage("找不到该记录");

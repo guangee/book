@@ -28,12 +28,13 @@ public class UserService {
     public Result<User> login(String username, String password) {
         User user = getUserByUsernameAndPassword(username, password);
         if (user == null) {
+            /*如果系统中的用户数量为0，则认为当前是管理员在注册*/
             long count = userMapper.count();
             if (count == 0) {
                 user = new User();
                 user.setUsername(username);
                 user.setPassword(password);
-                user.setType(2);
+                user.setType(1);
                 userMapper.saveAndFlush(user);
             } else {
                 return Result.createByErrorMessage("登陆失败");

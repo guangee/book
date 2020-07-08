@@ -8,7 +8,7 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 
 /**
@@ -23,4 +23,22 @@ public class Book extends BaseDO {
 
     @ApiModelProperty("书名")
     private String name;
+
+    @ApiModelProperty("作者")
+    private String author;
+
+    @ApiModelProperty("出版社")
+    private String press;
+
+    @ApiModelProperty("ISBN")
+    private String isbn;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @ApiModelProperty("出版日期")
+    private LocalDate pubDate;
+
+    @ApiModelProperty("页码数")
+    private Integer pages;
+
+
 }

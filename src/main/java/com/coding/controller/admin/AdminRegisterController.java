@@ -33,7 +33,6 @@ public class AdminRegisterController {
     public Result<String> add(@RequestParam int num) {
         for (int i = 0; i < num; i++) {
             Borrow borrow = new Borrow();
-            borrow.setCode(UUID.randomUUID().toString());
             borrowMapper.saveAndFlush(borrow);
         }
         return Result.createBySuccess();
@@ -55,7 +54,6 @@ public class AdminRegisterController {
     @GetMapping("")
     public DataResponse<Borrow> list(DataRequest dataRequest, String keyword) {
         Borrow record = new Borrow();
-        record.setCode(keyword);
         ExampleMatcher matching = ExampleMatcher.matching();
         matching.withMatcher("code", ExampleMatcher.GenericPropertyMatchers.contains());
         Example<Borrow> example = Example.of(record, matching);

@@ -31,7 +31,7 @@ import java.util.Objects;
 @Controller
 public class IndexController {
 
-    private static Map<String, Object> siteInfo = Maps.newHashMap();
+    private static final Map<String, Object> siteInfo = Maps.newHashMap();
 
     static {
         siteInfo.put("name", "图书馆");
@@ -43,10 +43,12 @@ public class IndexController {
     @GetMapping("")
     public String index(HttpSession session, Model model) {
         session.setAttribute(Const.NAV, nav());
+        /*如果用户没有登录，返回登录页面*/
         if (session.getAttribute("user") == null) {
             model.addAttribute("siteInfo", siteInfo);
             return "login";
         }
+        /*用户已经登录，把网站信息输出到页面上*/
         model.addAttribute("siteInfo", siteInfo);
         return "index";
     }
