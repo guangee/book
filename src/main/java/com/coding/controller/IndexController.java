@@ -34,7 +34,7 @@ public class IndexController {
     private static Map<String, Object> siteInfo = Maps.newHashMap();
 
     static {
-        siteInfo.put("name", "注册码管理");
+        siteInfo.put("name", "图书馆");
         siteInfo.put("year", LocalDate.now().getYear());
     }
 
