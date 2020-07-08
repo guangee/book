@@ -5,7 +5,7 @@
 
     <groupId>com.coding</groupId>
     <artifactId>oracle-book</artifactId>
-    <version>1.14</version>
+    <version>1.15</version>
     <packaging>jar</packaging>
 
     <name>${artifactId}</name>

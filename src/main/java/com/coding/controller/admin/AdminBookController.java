@@ -10,10 +10,7 @@ import com.guanweiming.common.utils.Result;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.*;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
@@ -55,7 +52,7 @@ public class AdminBookController {
                 .withMatcher("name", item -> item.contains());
         log.info("keyword:{}", keyword);
         Example<Book> example = Example.of(record, matching);
-        Page<Book> all = bookMapper.findAll(example, PageRequest.of(dataRequest.getPage() - 1, dataRequest.getSize()));
+        Page<Book> all = bookMapper.findAll(example, PageRequest.of(dataRequest.getPage() - 1, dataRequest.getSize(), Sort.Direction.DESC, "id"));
         return new DataResponse<>(all, dataRequest.getDraw());
     }
 
