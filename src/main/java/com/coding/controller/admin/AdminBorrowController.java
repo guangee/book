@@ -28,11 +28,7 @@ public class AdminBorrowController {
     private final BorrowMapper borrowMapper;
 
     @PostMapping("add")
-    public Result<String> add(@RequestParam int num) {
-        for (int i = 0; i < num; i++) {
-            Borrow borrow = new Borrow();
-            borrowMapper.saveAndFlush(borrow);
-        }
+    public Result<String> add(Borrow borrow) {
         return Result.createBySuccess();
     }
 

@@ -86,6 +86,14 @@ public class IndexController {
         return "login";
     }
 
+    @ApiOperation(value = "注册页面", hidden = true)
+    @GetMapping("register")
+    public String register(Model model) {
+        model.addAttribute("siteInfo", siteInfo);
+        return "register";
+    }
+
+
     @ApiOperation(value = "退出登陆", hidden = true)
     @GetMapping("logout")
     public String logout() {

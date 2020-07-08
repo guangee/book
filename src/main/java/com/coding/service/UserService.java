@@ -100,6 +100,7 @@ public class UserService {
         if (!CollectionUtils.isEmpty(list)) {
             return Result.createByErrorMessage("用户已经存在，无法添加");
         }
+        user.setType(0);
         userMapper.saveAndFlush(user);
         return Result.createBySuccess();
     }

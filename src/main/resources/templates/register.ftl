@@ -20,7 +20,7 @@
 <div class="container">
     <form class="form-signin" method="get" action="">
         <div class="logo animated bounceIn"><img src="${context}/favicon.png"/></div>
-        <h1>${siteInfo.name}管理后台</h1>
+        <h1>注册</h1>
         <div class="form-group">
             <input type="text" class="form-control" placeholder="用户名" name="username" required="required"
                    autofocus="autofocus">
@@ -28,8 +28,8 @@
         <div class="form-group">
             <input type="password" class="form-control" placeholder="密码" name="password" required="required">
         </div>
-        <button class="btn btn-lg btn-primary btn-block subBtn" onclick="return login()">登录</button>
-        <a class="btn btn-lg btn-default btn-block subBtn" href="register">去注册</a>
+        <button class="btn btn-lg btn-primary btn-block subBtn" onclick="return login()">注册</button>
+        <a class="btn btn-lg btn-default btn-block subBtn" href="login">去登录</a>
     </form>
 </div>
 
@@ -43,7 +43,7 @@
         var password = $("input[name='password']").val();
 
         $.ajax({
-            url: "admin/user/login",
+            url: "admin/user/add",
             method: "POST",
             data: {
                 username: username,

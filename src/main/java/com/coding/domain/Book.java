@@ -1,6 +1,5 @@
 package com.coding.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -8,7 +7,6 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.time.LocalDate;
 
 
 /**
@@ -38,6 +36,9 @@ public class Book extends BaseDO {
 
     @ApiModelProperty("页码数")
     private Integer pages;
+
+    @ApiModelProperty("状态 0-待归还 1-可借阅")
+    private Integer status;
 
 
 }

@@ -33,7 +33,7 @@ public class AdminUserController {
             @RequestParam String password) {
         Result<User> login = userService.login(username, password);
         User user = login.getData();
-        if (user == null || user.getType() == null || user.getType() == 0) {
+        if (user == null || user.getType() == null) {
             return Result.createByErrorMessage("登录失败");
         }
         return login;
