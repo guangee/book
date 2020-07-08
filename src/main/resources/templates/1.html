@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>维修调试记录</title>
+
+    <script>
+    
+    </script>
+    <style>
+        html{
+            padding:20px 32px;
+        }
+        .center{
+            text-align:center;
+        }
+        .right{
+            text-align:right;
+        }
+        table{
+            /* margin-top:20px; */
+            margin:30px auto 0;
+        }
+        table,tr,td{
+            border:1px solid #333;
+            border-collapse:collapse;
+            
+        }
+        td{
+            padding:8px 16px;
+            height:20px;
+        }
+        .specail{
+            color:lightcoral;
+        }
+        .gap{
+            margin:10px 0 0;
+        }
+        .sign{
+            margin-top:30px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="center">维修调试记录</h1>
+    <div class="right"><span>记录编号：________________</span></div>
+    <div><span>设备名称：</span>
+        <label><input name="安全阀" type="checkbox" value="安全阀" checked>安全阀</label>
+        <label><input name="安全阀" type="checkbox" value="安全阀">减压阀</label>
+        其他______________
+    </div>
+    <table>
+        <tbody>
+            <tr>
+                <td>位 号</td>
+                <td>公称通径Dn(mm)</td>
+                <td>公称压力PN(MPa)</td>
+                <td>型 号</td>
+                <td>数量（台）</td>
+                <td>修复次数__次__年</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td rowspan="3">工作介质</td>
+                <td rowspan="3">
+                    <div><label><input name="蒸汽" type="checkbox" checked="checked">蒸汽</label></div>
+                    <div><label><input name="水" type="checkbox">水</label></div>
+                    <div><label><input name="油" type="checkbox">油</label></div>
+                    <div>其他：_____</div>
+                </td>
+                <td>工作压力</td>
+                <td></td>
+                <td>整定压力Mpa</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="specail">螺纹（规格）</td>
+                <td></td>
+                <td>调压范围Mpa</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>连接形式</td>
+                <td>
+                    <div><label><input name="法兰" type="checkbox">法兰</label></div>
+                    <div>其他：_____</div> 
+                </td>
+                <td class="specail">密封面中径mm</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>工作温度℃</td>
+                <td></td>
+                <td>安装位置</td>
+                <td colspan="3"></td>
+            </tr>
+            <tr>
+                <td>制造单位</td>
+                <td></td>
+                <td>产地</td>
+                <td>
+                    <div><label><input name="中国" type="checkbox">中国</label></div>
+                    <div>进口：_____</div>
+                </td>
+                <td>现场调试</td>
+                <td>
+                    <div><label><input name="是" type="checkbox">是</label></div>
+                    <div><label><input name="否" type="checkbox">否</label></div>
+                </td>
+            </tr>
+            <tr>
+                <td>修复主要内容</td>
+                <td colspan="5">
+                    
+                        <label><input name="拆卸" type="checkbox">拆卸</label>
+                    <label><input name="安装" type="checkbox">安装</label>
+                    <label><input name="离线调试" type="checkbox">离线调试</label>
+                    <label><input name="强度试验" type="checkbox">强度试验</label>
+                    <label><input name="密封试验" type="checkbox">密封试验</label>
+                    
+
+                    
+                    <label><input name="解体" type="checkbox">解体</label>
+                    <label><input name="清洗" type="checkbox">清洗</label>
+                    <label><input name="膜片清理" type="checkbox">膜片清理</label>
+                    <label><input name="弹簧处理" type="checkbox">弹簧处理（渗透检测/其他）</label>
+                    <div class="gap"><label><input name="密封件更换" type="checkbox">密封件更换_________________________________________________</label></div>                    
+                    <div class="gap"><label><input name="密封系统维修" type="checkbox">密封系统维修_______________________________________________</label></div>                    
+                    <div class="gap"><label><input name="机械加工处理" type="checkbox">机械加工处理_______________________________________________</label></div>  
+                      
+                    <div class="gap"><label><input name="紧固件更换" type="checkbox">紧固件更换_________________________________________________</label></div>
+                    <div class="gap"><label><input name="部件校正处理" type="checkbox">部件校正处理_______________________________________________</label></div>                  
+                    <div class="gap">特殊处理：
+                        <label><input name="脱脂" type="checkbox">脱脂(高纯酒精/四氯化碳)</label> 
+                        <label><input name="其他" type="checkbox">其他：___________</label>
+                    </div>   
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div>承修单位：</div>
+                    <div class="center">陕西朗岳特种设备检测有限公司</div>
+                    <div class="center">工程部</div>
+                    <div class="sign">维修人员签字：________ 日期：_________</div>
+                    <div class="sign">校验人员签字：________ 日期：_________</div>
+                </td>
+                <td colspan="3">
+                    <div class="gap">使用单位:________________________________</div>
+                    <div class="gap">现场人员签字：_____________ 日期:__________</div>
+                    <div class="gap">负责人签字：_______________ 日期:__________</div>
+                    <div class="gap">主管签字：_________________ 日期:__________</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

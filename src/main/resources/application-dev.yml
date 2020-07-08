@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@k8s.guanweiming.com:49161:XE
+    username: book
+    password: 123456Aa@#
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+  profiles:
+    include:
+      - mybatis

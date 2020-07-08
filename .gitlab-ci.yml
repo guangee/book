@@ -1,0 +1,16 @@
+image: docker:latest
+
+services:
+  - name: docker:dind
+    command: ["--insecure-registry=172.17.0.1:5000"]    # 将本地Docker Registry私服设置为insecure，避免registry默认需要https才能访问
+
+stages:
+  - package
+
+maven-package:
+  image: maven:3.5-jdk-8-alpine
+  tags:
+    - maven
+  stage: package
+  script:
+    - mvn clean package -Dmaven.test.skip=true dockerfile:build dockerfile:push
