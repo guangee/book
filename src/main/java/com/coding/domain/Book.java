@@ -33,9 +33,8 @@ public class Book extends BaseDO {
     @ApiModelProperty("ISBN")
     private String isbn;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
     @ApiModelProperty("出版日期")
-    private LocalDate pubDate;
+    private String pubDate;
 
     @ApiModelProperty("页码数")
     private Integer pages;

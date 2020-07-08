@@ -15,17 +15,15 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
-import java.util.UUID;
-
 /**
  * @author guanweiming
  */
 @Slf4j
 @ApiIgnore
 @AllArgsConstructor
-@RequestMapping(Const.ADMIN + "register")
+@RequestMapping(Const.ADMIN + "borrow")
 @RestController
-public class AdminRegisterController {
+public class AdminBorrowController {
 
     private final BorrowMapper borrowMapper;
 

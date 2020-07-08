@@ -1,4 +1,4 @@
-<#setting number_format="#">
+register<#setting number_format="#">
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
                 class="sr-only">Close</span></button>

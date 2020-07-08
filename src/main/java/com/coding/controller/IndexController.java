@@ -2,7 +2,8 @@ package com.coding.controller;
 
 import com.coding.common.Const;
 import com.coding.common.NavVo;
-import com.coding.controller.manager.ManagerRegisterController;
+import com.coding.controller.manager.ManagerBookController;
+import com.coding.controller.manager.ManagerBorrowController;
 import com.coding.controller.manager.ManagerUserController;
 import com.coding.domain.User;
 import com.coding.service.UserService;
@@ -66,10 +67,15 @@ public class IndexController {
         List<NavVo> list = Lists.newArrayList();
         list.add(new NavVo("首页", "desktop"));
         log.info("用户身份:{}", user.getType());
-        if (Objects.equals(user.getType(), 2)) {
+        if (Objects.equals(user.getType(), 1)) {
             list.add(ManagerUserController.NAV);
+            list.add(ManagerBorrowController.NAV);
+            list.add(ManagerBookController.NAV);
+        } else {
+            list.add(ManagerBookController.NAV);
+            list.add(ManagerBorrowController.NAV);
+
         }
-        list.add(ManagerRegisterController.NAV);
         return list;
     }
 

@@ -1,9 +1,10 @@
-<@override name="title">维修列表</@override>
+<@override name="title">图书列表</@override>
 <@override name="header">
     <form class="form-inline">
         <input type="text" class="form-control" id="keyword">
         <button type="submit" class="btn btn-default" onclick="return search()">搜索</button>
-        <button type="submit" class="btn btn-default" onclick="return exportFix()">导出</button>
+        <button type="submit" class="btn btn-default J_ajax_content_modal" data-href='manager/book/add'>添加书籍
+        </button>
     </form>
 </@override>
 
@@ -14,10 +15,8 @@
         <thead>
         <tr>
             <th>id</th>
-            <th>维修编号</th>
-            <th>维修人员</th>
-            <th>提交时间</th>
-            <th>使用单位</th>
+            <th>书名</th>
+            <th>ISBN</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -35,23 +34,20 @@
                 'serverSide': true,
                 // "paging": false,
                 "ajax": {
-                    url: "admin/fix",
+                    url: "admin/book",
                     dataSrc: "data"
                 },
                 columns: [
                     {data: 'id', defaultContent: '', "searchable": true},
-                    {data: 'fixNo', defaultContent: '', "searchable": true},
-                    {data: 'weixiurenyuan', defaultContent: '', "searchable": true},
-                    {data: 'createTime', defaultContent: '', "searchable": true},
-                    {data: 'shiyongdanwei', defaultContent: '', "searchable": true},
+                    {data: 'name', defaultContent: '', "searchable": true},
+                    {data: 'isbn', defaultContent: '', "searchable": true},
                     {
                         data: 'id', render: function (data) {
                             if (data === undefined) {
                                 return '';
                             }
-                            var deleteButton = "<a class='btn btn-danger J_ajax_content_modal' data-href='manager/fix/delete?id=" + data + "'>删除</a>";
-                            var updateButton = "<a class='btn btn-success' href='#manager/fix/update?id=" + data + "'>编辑</a>";
-                            return deleteButton + updateButton;
+                            var deleteButton = "<a class='btn btn-danger J_ajax_content_modal' data-href='manager/borrow/delete?id=" + data + "'>删除</a>";
+                            return deleteButton;
                         }, "searchable": true
                     }
                 ],
@@ -62,13 +58,8 @@
         });
 
         function search() {
-            table.ajax.url("admin/fix?keyword=" + $("#keyword").val()
+            table.ajax.url("admin/book?keyword=" + $("#keyword").val()
             ).draw();
-            return false;
-        }
-
-        function exportFix() {
-            location.href = "admin/fix/export?keyword=" + $("#keyword").val();
             return false;
         }
 

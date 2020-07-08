@@ -2,7 +2,7 @@
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
                 class="sr-only">Close</span></button>
-    <h4 class="modal-title" id="myModalLabel">删除维修记录</h4>
+    <h4 class="modal-title" id="myModalLabel">删除注册码</h4>
 </div>
 <form class="form-horizontal J_ajaxForm" role="form" action="">
     <div class="modal-body" id="main-body">
@@ -11,12 +11,6 @@
             <div class="col-sm-9">
                 <input type="text" class="form-control" readonly value="${data.id!}" placeholder="id"
                        name="id">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label">维修编号</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" readonly value="${data.fixNo!}" placeholder="维修编号" name="fixNo">
             </div>
         </div>
     </div>
@@ -35,7 +29,7 @@
             return false;
         }
         $.ajax({
-            url: "admin/fix/delete/" + id,
+            url: "admin/borrow/delete/" + id,
             method: "POST",
             data: {},
             success: function (res) {

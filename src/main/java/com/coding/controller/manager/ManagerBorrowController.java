@@ -17,50 +17,44 @@ import springfox.documentation.annotations.ApiIgnore;
  */
 @ApiIgnore
 @AllArgsConstructor
-@RequestMapping(Const.MANAGER + "register")
+@RequestMapping(Const.MANAGER + "borrow")
 @Controller
-public class ManagerRegisterController {
+public class ManagerBorrowController {
 
     /**
      * 左侧菜单列表
      */
-    public static final NavVo NAV = new NavVo("注册码管理", "");
+    public static final NavVo NAV = new NavVo("借书管理", "");
 
     static {
-        NAV.getChild().add(new NavVo("注册码列表", Const.MANAGER + "register/index"));
+        NAV.getChild().add(new NavVo("借书列表", Const.MANAGER + "borrow/index"));
     }
 
     private final BorrowMapper borrowMapper;
 
     @GetMapping("index")
     public String index(Model model) {
-        return "register/index";
+        return "borrow/index";
     }
 
 
     @GetMapping("add")
     public String add() {
-        return "register/add";
-    }
-
-    @GetMapping("pic")
-    public String pic(Model model, String url) {
-        model.addAttribute("url", url);
-        return "fix/pic";
+        return "borrow/add";
     }
 
 
     @GetMapping("delete")
     public String delete(Model model, Long id) {
         model.addAttribute("data", borrowMapper.findById(id).orElse(null));
-        return "register/delete";
+        return "borrow/delete";
     }
 
     @GetMapping("update")
     public String update(Model model, Long id) {
         Borrow borrow = borrowMapper.findById(id).orElse(null);
         model.addAttribute("data", borrow);
-        return "register/update";
+        return "borrow/update";
     }
 
 }
