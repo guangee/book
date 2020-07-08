@@ -14,3 +14,4 @@ maven-package:
   stage: package
   script:
     - mvn clean package -Dmaven.test.skip=true dockerfile:build dockerfile:push
+    - docker run --rm --name kubectl -v ~/.kube/config:/.kube/config  -v $(pwd)/oracle-book.yml:/deploy.yml bitnami/kubectl:latest apply -f /deploy.yml
