@@ -17,6 +17,10 @@
             <th>id</th>
             <th>书名</th>
             <th>ISBN</th>
+            <th>作者</th>
+            <th>页数</th>
+            <th>出版社</th>
+            <th>出版日期</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -41,12 +45,16 @@
                     {data: 'id', defaultContent: '', "searchable": true},
                     {data: 'name', defaultContent: '', "searchable": true},
                     {data: 'isbn', defaultContent: '', "searchable": true},
+                    {data: 'author', defaultContent: '', "searchable": true},
+                    {data: 'pages', defaultContent: '', "searchable": true},
+                    {data: 'press', defaultContent: '', "searchable": true},
+                    {data: 'pubDate', defaultContent: '', "searchable": true},
                     {
                         data: 'id', render: function (data) {
                             if (data === undefined) {
                                 return '';
                             }
-                            var deleteButton = "<a class='btn btn-danger J_ajax_content_modal' data-href='manager/borrow/delete?id=" + data + "'>删除</a>";
+                            var deleteButton = "<a class='btn btn-danger J_ajax_content_modal' data-href='manager/book/delete?id=" + data + "'>删除</a>";
                             return deleteButton;
                         }, "searchable": true
                     }

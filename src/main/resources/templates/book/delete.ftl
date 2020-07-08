@@ -29,7 +29,7 @@
             return false;
         }
         $.ajax({
-            url: "admin/borrow/delete/" + id,
+            url: "admin/book/delete/" + id,
             method: "POST",
             data: {},
             success: function (res) {

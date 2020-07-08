@@ -55,9 +55,8 @@ public class AdminBookController {
             matching.withMatcher("name", ExampleMatcher.GenericPropertyMatchers.contains());
         }
         Example<Book> example = Example.of(record, matching);
-        Page<Book> all = bookMapper.findAll(PageRequest.of(dataRequest.getPage() - 1, dataRequest.getSize()));
-        log.info("data:{}", JsonUtil.toJson(all));
-        return new DataResponse<>(all.getTotalElements(), all.getContent(), dataRequest.getDraw());
+        Page<Book> all = bookMapper.findAll(example, PageRequest.of(dataRequest.getPage() - 1, dataRequest.getSize()));
+        return new DataResponse<>(all, dataRequest.getDraw());
     }
 
 
