@@ -50,10 +50,12 @@ public class AdminBookController {
     @GetMapping("")
     public DataResponse<Book> list(DataRequest dataRequest, String keyword) {
         Book record = new Book();
+        record.setName(keyword);
         ExampleMatcher matching = ExampleMatcher.matching();
         if (StringUtils.isNotBlank(keyword)) {
             matching.withMatcher("name", ExampleMatcher.GenericPropertyMatchers.contains());
         }
+        log.info("keyword:{}", keyword);
         Example<Book> example = Example.of(record, matching);
         Page<Book> all = bookMapper.findAll(example, PageRequest.of(dataRequest.getPage() - 1, dataRequest.getSize()));
         return new DataResponse<>(all, dataRequest.getDraw());
