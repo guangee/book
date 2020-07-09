@@ -55,11 +55,11 @@
                     {data: 'pubDate', defaultContent: '', "searchable": true},
                     {
                         data: 'status', render: function (data) {
-                            if(data===undefined){
+                            if (data === 1) {
                                 return "<button class='btn btn-success'>可借阅</button>"
                             }
                             if (data === 0) {
-                                return "<button class='btn btn-default'>已借阅</button>";
+                                return "<button class='btn btn-warning'>不可借阅</button>";
                             }
                             return "<button class='btn btn-success'>可借阅</button>";
                         }, "searchable": true

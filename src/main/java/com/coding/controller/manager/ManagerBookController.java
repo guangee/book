@@ -45,6 +45,12 @@ public class ManagerBookController {
         return "book/add";
     }
 
+    @GetMapping("borrow")
+    public String borrow(Model model, Long id) {
+        model.addAttribute("data", bookMapper.findById(id).orElse(null));
+        return "book/borrow";
+    }
+
 
     @GetMapping("delete")
     public String delete(Model model, Long id) {

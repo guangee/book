@@ -28,6 +28,9 @@ public class Borrow extends BaseDO {
     @OneToOne
     private Book book;
 
+    @OneToOne
+    private User user;
+
 
     @CreationTimestamp
     @ApiModelProperty("借书时间")

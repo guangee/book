@@ -38,23 +38,10 @@ public class ManagerBorrowController {
     }
 
 
-    @GetMapping("add")
-    public String add() {
-        return "borrow/add";
-    }
-
-
-    @GetMapping("delete")
+    @GetMapping("return")
     public String delete(Model model, Long id) {
         model.addAttribute("data", borrowMapper.findById(id).orElse(null));
-        return "borrow/delete";
-    }
-
-    @GetMapping("update")
-    public String update(Model model, Long id) {
-        Borrow borrow = borrowMapper.findById(id).orElse(null);
-        model.addAttribute("data", borrow);
-        return "borrow/update";
+        return "borrow/return";
     }
 
 }
