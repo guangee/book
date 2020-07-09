@@ -24,7 +24,7 @@
 
         function logout() {
             $.ajax({
-                url: "logout",
+                url: "${context}/logout",
                 method: "GET",
                 data: {},
                 success: function (res) {
