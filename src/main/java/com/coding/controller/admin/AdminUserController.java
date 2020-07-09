@@ -67,6 +67,11 @@ public class AdminUserController {
         Borrow borrow = new Borrow();
         borrow.setUser(user);
         List<Borrow> all = borrowMapper.findAll(Example.of(borrow));
+        for (Borrow item : all) {
+            if (item.getStatus() == 0) {
+                return Result.createByErrorMessage("您有书没还，不可以删除");
+            }
+        }
         borrowMapper.deleteAll(all);
         userMapper.deleteById(id);
         return Result.createBySuccess();
