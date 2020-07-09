@@ -32,7 +32,7 @@
                     deleteCookie("Authorization");
                     /*清除sessionId*/
                     deleteCookie("JSESSIONID");
-                    location.reload();
+                    location.href("/");
                 }
             });
             return false;
