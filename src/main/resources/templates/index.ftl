@@ -24,7 +24,7 @@
 
         function logout() {
             $.ajax({
-                url: "${context}/logout",
+                url: "logout",
                 method: "GET",
                 data: {},
                 success: function (res) {
@@ -32,7 +32,7 @@
                     deleteCookie("Authorization");
                     /*清除sessionId*/
                     deleteCookie("JSESSIONID");
-                    location.href("${context}/");
+                    location.href("login");
                 }
             });
             return false;
