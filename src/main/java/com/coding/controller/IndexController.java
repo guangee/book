@@ -97,6 +97,7 @@ public class IndexController {
     @ApiOperation(value = "退出登陆", hidden = true)
     @GetMapping("logout")
     public String logout() {
+        HttpKit.getRequest().getSession().removeAttribute("user");
         return "redirect:/";
     }
 
