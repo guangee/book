@@ -52,7 +52,7 @@ public class AdminBookController {
                 .withMatcher("name", item -> item.contains());
         log.info("keyword:{}", keyword);
         Example<Book> example = Example.of(record, matching);
-        Page<Book> all = bookMapper.findAll(example, PageRequest.of(dataRequest.getPage() - 1, dataRequest.getSize(), Sort.Direction.DESC, "id"));
+        Page<Book> all = bookMapper.findAll(example, PageRequest.of(dataRequest.getPage(), dataRequest.getSize(), Sort.Direction.DESC, "id"));
         return new DataResponse<>(all, dataRequest.getDraw());
     }
 

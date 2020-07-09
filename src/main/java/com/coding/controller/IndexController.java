@@ -68,8 +68,8 @@ public class IndexController {
         list.add(new NavVo("首页", "desktop"));
         log.info("用户身份:{}", user.getType());
         if (Objects.equals(user.getType(), 1)) {
-//            list.add(ManagerUserController.NAV);
-//            list.add(ManagerBorrowController.NAV);
+            list.add(ManagerUserController.NAV);
+            list.add(ManagerBorrowController.NAV);
             list.add(ManagerBookController.NAV);
         } else {
             list.add(ManagerBookController.NAV);

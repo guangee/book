@@ -1,8 +1,6 @@
 <@override name="title">用户列表</@override>
 <@override name="header">
     <form class="form-inline">
-        <button type="submit" class="btn btn-default J_ajax_content_modal" data-href='manager/user/add'>添加维修人员
-        </button>
     </form>
 </@override>
 
@@ -14,8 +12,6 @@
         <tr>
             <th>id</th>
             <th>账号</th>
-            <th>手机号</th>
-            <th>权限</th>
             <th>操作</th>
         </tr>
         </thead>
@@ -39,33 +35,13 @@
                 columns: [
                     {data: 'id', defaultContent: '', "searchable": true},
                     {data: 'username', defaultContent: '', "searchable": true},
-                    {data: 'phone', defaultContent: '', "searchable": true},
-                    {
-                        data: 'type', render: function (data) {
-                            if (data === undefined || data === '') {
-                                return '';
-                            }
-                            if (data === 0) {
-                                return '维修人员';
-                            }
-                            if (data === 1) {
-                                return '管理员';
-                            }
-                            if (data === 2) {
-                                return '超级管理员';
-                            }
-                            return '';
-
-                        }, "searchable": true
-                    },
                     {
                         data: 'id', render: function (data) {
                             if (data === undefined) {
                                 return '';
                             }
                             var deleteButton = "<a class='btn btn-danger J_ajax_content_modal' data-href='manager/user/delete?id=" + data + "'>删除</a>";
-                            var updateButton = "<a class='btn btn-success J_ajax_content_modal' data-href='manager/user/update?id=" + data + "'>更新</a>";
-                            return deleteButton + updateButton;
+                            return deleteButton;
                         }, "searchable": true
                     }
                 ],

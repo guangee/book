@@ -3,15 +3,20 @@ package com.coding.controller.admin;
 import com.coding.common.Const;
 import com.coding.common.DataRequest;
 import com.coding.common.DataResponse;
+import com.coding.domain.Borrow;
 import com.coding.domain.User;
+import com.coding.mapper.BorrowMapper;
 import com.coding.mapper.UserMapper;
 import com.coding.service.UserService;
 import com.guanweiming.common.utils.Result;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.data.domain.Example;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
+
+import java.util.List;
 
 /**
  * @author guanweiming
@@ -24,6 +29,7 @@ public class AdminUserController {
 
     private final UserService userService;
     private final UserMapper userMapper;
+    private final BorrowMapper borrowMapper;
 
 
     @ApiOperation("登陆接口，返回用户数据")
@@ -55,6 +61,13 @@ public class AdminUserController {
         if (user == null) {
             return Result.createByErrorMessage("用户不存在");
         }
+        if (user.getType() == 1) {
+            return Result.createByErrorMessage("管理员不能删除");
+        }
+        Borrow borrow = new Borrow();
+        borrow.setUser(user);
+        List<Borrow> all = borrowMapper.findAll(Example.of(borrow));
+        borrowMapper.deleteAll(all);
         userMapper.deleteById(id);
         return Result.createBySuccess();
     }

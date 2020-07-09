@@ -89,9 +89,11 @@ public class AdminBorrowController {
         selectUser.setId(currentUser.getId());
 
         Borrow record = new Borrow();
-        record.setUser(selectUser);
+        if (currentUser.getType() == 0) {
+            record.setUser(selectUser);
+        }
         Example<Borrow> example = Example.of(record);
-        Page<Borrow> all = borrowMapper.findAll(example, PageRequest.of(dataRequest.getPage() - 1, dataRequest.getSize(), Sort.Direction.DESC, "id"));
+        Page<Borrow> all = borrowMapper.findAll(example, PageRequest.of(dataRequest.getPage(), dataRequest.getSize(), Sort.Direction.DESC, "id"));
 
         log.info("userInfo:{}", JsonUtil.toJson(all));
         return new DataResponse<>(all.getTotalElements(), all.getContent(), dataRequest.getDraw());

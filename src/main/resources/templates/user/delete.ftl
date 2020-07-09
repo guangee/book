@@ -7,16 +7,10 @@
 <form class="form-horizontal J_ajaxForm" role="form" action="">
     <div class="modal-body" id="main-body">
         <div class="form-group">
-            <label class="col-sm-3 control-label">id</label>
+            <label class="col-sm-3 control-label">名字</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" readonly value="${data.id!}" placeholder="id"
+                <input type="text" class="form-control" readonly value="${data.username!}" placeholder="name"
                        name="id">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-sm-3 control-label">地址</label>
-            <div class="col-sm-9">
-                <input type="text" class="form-control" readonly value="${data.url!}" placeholder="地址" name="url">
             </div>
         </div>
     </div>

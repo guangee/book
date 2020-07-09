@@ -22,7 +22,7 @@ public class DataRequest {
     private List<Map<String, Object>> order = Lists.newArrayList();
 
     public Integer getPage() {
-        return start / length + 1;
+        return start / length ;
     }
 
     public Integer getSize() {
