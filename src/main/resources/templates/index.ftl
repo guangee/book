@@ -23,11 +23,18 @@
         };
 
         function logout() {
-            /*清除jwt*/
-            deleteCookie("Authorization");
-            /*清除sessionId*/
-            deleteCookie("JSESSIONID");
-            location.reload();
+            $.ajax({
+                url: "logout",
+                method: "GET",
+                data: {},
+                success: function (res) {
+                    /*清除jwt*/
+                    deleteCookie("Authorization");
+                    /*清除sessionId*/
+                    deleteCookie("JSESSIONID");
+                    location.reload();
+                }
+            });
             return false;
         }
     </script>
@@ -36,7 +43,7 @@
 <body>
 <header id="page_header">
     <div class="logow animated fadeInLeft"><a href="#"><img
-            src="http://aiobluecnd.chezhu.xin/20180327154234:0919_logo.png" width="32" height="32"></a></div>
+                    src="http://aiobluecnd.chezhu.xin/20180327154234:0919_logo.png" width="32" height="32"></a></div>
     <div class="right_side">
         <!--<span class="fullScreen_btn"><i class="fa fa-arrows-alt"></i></span>-->
         <span class="logout_btn" onclick="return logout()"><i class="fa fa-sign-out"></i></span>
@@ -48,7 +55,7 @@
             <span>
                 <div>
                     <a href="#" data-toggle="dropdown">
-                        <i class="fa fa-user"></i><span class="name">admin</span><span class="caret"></span>
+                        <i class="fa fa-user"></i><span class="name">${user.username!}</span><span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li><a tabindex="-1" href="#">个人资料</a></li>
@@ -61,24 +68,25 @@
         <ul>
             <#list nav as item>
                 <li><a href="#${item.url}"><i class="fa fa-lg fa-fw fa-file-text"></i><span>${item.title}</span>
-                    <#if item.child?size !=0><b><i class="fa fa-plus-square-o"></i></b></#if></a>
-                <#if item.child?size !=0>
-                    <ul>
-                <#list item.child as item2>
-                    <li><a href="#${item2.url}"><i class="fa fa-fw fa-file"></i><span>${item2.title}</span>
-                        <#if item2.child?size !=0><b><i class="fa fa-plus-square-o"></i></b></#if></a>
-                        <#if item2.child?size !=0>
+                        <#if item.child?size !=0><b><i class="fa fa-plus-square-o"></i></b></#if></a>
+                    <#if item.child?size !=0>
                         <ul>
-                            <#list item2.child as item3>
-                                <li><a href="#/${item3.url}"><i
-                                        class="fa fa-fw fa-file"></i><span>${item3.title}</span></a></li>
+                            <#list item.child as item2>
+                                <li><a href="#${item2.url}"><i class="fa fa-fw fa-file"></i><span>${item2.title}</span>
+                                        <#if item2.child?size !=0><b><i class="fa fa-plus-square-o"></i></b></#if></a>
+                                    <#if item2.child?size !=0>
+                                        <ul>
+                                            <#list item2.child as item3>
+                                                <li><a href="#/${item3.url}"><i
+                                                                class="fa fa-fw fa-file"></i><span>${item3.title}</span></a>
+                                                </li>
+                                            </#list>
+                                        </ul>
+                                    </#if>
+                                </li>
                             </#list>
                         </ul>
-                        </#if>
-                    </li>
-                </#list>
-                    </ul>
-                </#if>
+                    </#if>
                 </li>
             </#list>
         </ul>
@@ -93,7 +101,8 @@
     <div id="content"></div>
 </div>
 <footer id="page_footer">
-    <div class="inside"><i class="fa fa-copyright"></i><a href="https://app.chezhu.xin/refuel">${siteInfo.name}管理2017-${siteInfo.year}</a></div>
+    <div class="inside"><i class="fa fa-copyright"></i><a href="https://app.chezhu.xin/refuel">${siteInfo.name}
+            管理2017-${siteInfo.year}</a></div>
 </footer>
 
 <!--Common Modal -->
