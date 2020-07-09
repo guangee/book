@@ -46,7 +46,7 @@ spec:
     spec:
       containers:
         - name: pig
-          image: registry.cn-beijing.aliyuncs.com/guanweiming/oracle-book:1.21
+          image: registry.cn-beijing.aliyuncs.com/guanweiming/oracle-book:1.22
           ports:
             - containerPort: 8888
 ---
